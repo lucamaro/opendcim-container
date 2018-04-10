@@ -1,0 +1,20 @@
+version: '3.5'
+
+services:
+
+  adminer:
+          image: adminer:4.6.2
+    restart: always
+    networks:
+      - database_net
+      - outside
+    ports:
+      - ${ADMINER_PORT}:8080
+
+networks:
+  database_net:
+    driver: bridge
+    internal: true
+  outside:
+    driver: bridge
+

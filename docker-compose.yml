@@ -1,0 +1,31 @@
+version: '3.5'
+
+services:
+
+  webapp:
+    image: lucamaro/opendcim:18.01
+    env_file: .env
+    environment:
+      DBHOST: db
+      DCIM_DB_SCHEMA: ${MYSQL_USER}
+      DCIM_DB_USER: ${MYSQL_USER}
+      DCIM_DB_PASSWD: ${MYSQL_PASSWORD}
+    volumes:
+      - dcim_data:/data
+    networks:
+      - database_net
+      - outside
+    ports:
+      - ${DCIM_PORT}:80
+
+networks:
+  database_net:
+    driver: bridge
+    internal: true
+  outside:
+    driver: bridge
+
+volumes:
+  dcim_data:
+    driver: local
+
