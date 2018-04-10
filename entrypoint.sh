@@ -41,6 +41,10 @@ if [ ! -f /.configured ] ; then
 		chown www-data:www-data /data/$D
 	done
 
+	# fix permissions on images directory
+	chmod 555 /data/images
+	chown www-data:www-data /var/www/dcim/vendor/mpdf/mpdf/ttfontdata
+
 	touch /.configured
 fi
 
