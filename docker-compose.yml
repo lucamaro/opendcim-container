@@ -4,6 +4,7 @@ services:
 
   webapp:
     image: lucamaro/opendcim:18.01
+    build: .
     env_file: .env
     environment:
       DBHOST: db
