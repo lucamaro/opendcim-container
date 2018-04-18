@@ -13,6 +13,7 @@ services:
       DCIM_DB_PASSWD: ${MYSQL_PASSWORD}
     volumes:
       - dcim_data:/data
+#      - ./certs:/certs
     networks:
       - database_net
       - outside

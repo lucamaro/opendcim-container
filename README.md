@@ -42,7 +42,7 @@ After completing the install procedure, remove install.php file:
 Optionally generate self signed certificates with the following commands:
 
     mkdir -p certs
-    openssl req -x509 -newkey rsa:4096 -keyout certs/ssl-cert.key -out certs/ssl-cert.pem -days 365 -nodes -subj "/C=GB/ST=London/L=London/O=Global Security/OU=IT Department/CN=example.com"
+    openssl req -x509 -newkey rsa:4096 -keyout certs/opendcim-ssl-cert.key -out certs/opendcim-ssl-cert.pem -days 365 -nodes -subj "/C=GB/ST=London/L=London/O=Global Security/OU=IT Department/CN=example.com"
 
 Add volume with certificates to docker-compose file:
 
