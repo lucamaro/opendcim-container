@@ -1,4 +1,4 @@
-[OpenDCIM](https://www.opendcim.org) is 
+[OpenDCIM](https://www.opendcim.org) is:
 
 > An Open Source Software package for managing the infrastructure of a 
 > data center, no matter how small or large.  Initially developed 
@@ -11,13 +11,15 @@ First customize `.env` file.
 
 | Var               | Value                                | Note |
 |-------------------|--------------------------------------|------|
-|DCIM_PORT          |80                                    |      |
+|DCIM_HTTP_PORT          |80                                    |      |
+|DCIM_HTTPS_PORT          |443                                    |      |
 |ADMINER_PORT       |8080                                  |      |
 |MYSQL_ROOT_PASSWORD|changerootdbpwd                       |      |
 |MYSQL_DATABASE     |dcim                                  |      |
 |MYSQL_USER         |dcim                                  |      |
 |MYSQL_PASSWORD     |changeme                              |      |
-|DCIM_PASSWD_FILE   |/var/run/secrets/opendcim_password    |      |
+|DCIM_PASSWD   |webdcimpwd    |default pwd for logging with dcim user for the first time  |
+|DCIM_PASSWD_FILE   |/secrets/opendcim_password    |useful with swarm secrets |
 |SSL_CERT_FILE      |/certs/ssl-cert.pem|if both cert and key are set, SSL will be enabled      |
 |SSL_KEY_FILE       |/certs/opendcim-ssl-cert.key|see above comment      |
 

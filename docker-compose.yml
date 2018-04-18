@@ -17,7 +17,8 @@ services:
       - database_net
       - outside
     ports:
-      - ${DCIM_PORT}:80
+      - ${DCIM_HTTP_PORT}:80
+      - ${DCIM_HTTPS_PORT}:443
 
 networks:
   database_net:
