@@ -8,7 +8,7 @@ if [ ! -f /.configured ] ; then
 	sed -i "s/[$]dbuser = [']dcim[']/\$dbuser = '$DCIM_DB_USER'/" /var/www/dcim/db.inc.php
 	sed -i "s/[$]dbpass = [']dcim[']/\$dbpass = '$DCIM_DB_PASSWD'/" /var/www/dcim/db.inc.php
 
-	if [ -f $SSL_CERT_FILE ] && [ -f $SSL_KEY_FILE ] ; then
+	if [ -f "$SSL_CERT_FILE" ] && [ -f "$SSL_KEY_FILE" ] ; then
 		a2enmod ssl
 		a2ensite default-ssl
 		cd /etc/ssl/certs/
