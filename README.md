@@ -70,7 +70,7 @@ Now you should be able to login with LDAP users credentials.
 
 Then restore your backup located in container under `/backup` dir into `/data/images` `/data/pictures` and `/data/drawings`.
 
-**WARN: since version 18.01 this must be in place before launching DCIM for the first time, sinci 
+**WARN: since version 18.01 this must be in place before launching DCIM for the first time, since 
 it will populate an image cache to improve performance in cabinet rendering.**
 
 
