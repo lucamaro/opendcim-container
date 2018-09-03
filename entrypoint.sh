@@ -48,5 +48,13 @@ if [ ! -f /.configured ] ; then
 	touch /.configured
 fi
 
+for param in "$@" ; do
+	if [ "$param" = "--remove-install" ] ; then 
+		rm -f /var/www/dcim/install.php
+	elif [ "$param" = "--enable-ldap" ] ; then
+		mv /var/www/dcim/.htaccess /var/www/dcim/.htaccess.no
+		sed -i "s/Apache/LDAP/" /var/www/dcim/db.inc.php
+	fi
+done
 
 exec docker-php-entrypoint "$@"
