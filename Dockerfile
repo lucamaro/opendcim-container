@@ -69,5 +69,5 @@ VOLUME ["/data"]
 
 # init script as entrypoint for initial configuration
 COPY entrypoint.sh /usr/local/bin
-ENTRYPOINT ["sh", "/usr/local/bin/entrypoint.sh", "-DFOREGROUND"]
+ENTRYPOINT ["sh", "/usr/local/bin/entrypoint.sh"]
 

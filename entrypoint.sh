@@ -57,4 +57,4 @@ for param in "$@" ; do
 	fi
 done
 
-exec docker-php-entrypoint "$@"
+exec docker-php-entrypoint -DFOREGROUND
