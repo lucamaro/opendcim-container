@@ -1,11 +1,11 @@
-FROM php:5.6.35-apache
+FROM php:7.2.11-apache
 
 ARG OPENDCIMPATH=https://github.com/samilliken/openDCIM/archive/
-ARG VER=18.01
+ARG VER=18.02
 ARG OPENDCIMFILE=$VER.tar.gz
  
-RUN sed -i 's/jessie\/updates main/jessie\/updates main contrib non-free/' /etc/apt/sources.list \
-    && sed -i 's/jessie main/jessie main contrib non-free/' /etc/apt/sources.list \
+RUN sed -i 's/stretch\/updates main/stretch\/updates main contrib non-free/' /etc/apt/sources.list \
+    && sed -i 's/stretch main/stretch main contrib non-free/' /etc/apt/sources.list \
     && apt update && apt install -y -q --no-install-recommends \
 	    snmp \
 	    snmp-mibs-downloader \
@@ -28,7 +28,7 @@ RUN sed -i 's/jessie\/updates main/jessie\/updates main contrib non-free/' /etc/
 
 #-----------
 
-FROM php:5.6.35-apache
+FROM php:7.2.11-apache
 LABEL mantainer="luca.maragnani@gmail.com"
 
 COPY --from=0 /var/www/dcim /var/www/dcim
@@ -40,14 +40,14 @@ COPY apache2.conf /etc/apache2/apache2.conf
 # enable localization, see locale-gen below
 COPY locale.gen /etc
 
-RUN sed -i 's/jessie\/updates main/jessie\/updates main contrib non-free/' /etc/apt/sources.list \
-    && sed -i 's/jessie main/jessie main contrib non-free/' /etc/apt/sources.list \
+RUN sed -i 's/stretch\/updates main/stretch\/updates main contrib non-free/' /etc/apt/sources.list \
+    && sed -i 's/stretch main/stretch main contrib non-free/' /etc/apt/sources.list \
     && apt update && apt install -y -q --no-install-recommends \
 	    snmp \
 	    snmp-mibs-downloader \
 	    graphviz \
 	    libsnmp-base libsnmp30 \
-	    libpng12-0 \
+	    libpng16-16 \
 	    libjpeg62-turbo \
 	    locales \
     && ln -s /usr/lib/x86_64-linux-gnu/libldap.so /usr/lib/libldap.so \
