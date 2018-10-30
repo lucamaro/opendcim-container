@@ -3,14 +3,15 @@ version: '3.5'
 services:
 
   webapp:
-    image: lucamaro/opendcim:18.01
+    image: lucamaro/opendcim-container:18.02-0
     build: .
     env_file: .env
     environment:
-      DBHOST: db
-      DCIM_DB_SCHEMA: ${MYSQL_USER}
-      DCIM_DB_USER: ${MYSQL_USER}
-      DCIM_DB_PASSWD: ${MYSQL_PASSWORD}
+      OPENDCIM_DB_HOST: db
+      OPENDCIM_DB_NAME: ${MYSQL_DATABASE}
+      OPENDCIM_DB_USER: ${MYSQL_USER}
+      OPENDCIM_DB_PASS: ${MYSQL_PASSWORD}
+      OPENDCIM_DB_PORT: 3306
     volumes:
       - dcim_data:/data
 #      - ./certs:/certs
